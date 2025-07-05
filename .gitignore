@@ -8,5 +8,7 @@
 *.gz
 *.toc
 
-*.py
+CreateDoc.py
 *.exe
+*.out
+*.dat

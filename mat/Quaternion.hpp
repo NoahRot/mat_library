@@ -29,10 +29,12 @@ Axis of rotation is the imaginary vector
 //    \___|_\__,_/__/__/
 //                      
 
+/// @brief Quaternion
+/// @tparam T Type of quaternion
 template<typename T>
 class Quaternion : public BaseVector<T,4> {
 public:
-    // === Base Vector using ===
+    // === Mat Object using ===
     
     using typename MatObject<T, 4>::iterator; 
     using typename MatObject<T, 4>::const_iterator;
@@ -86,6 +88,8 @@ public:
 
     // === Utils ===
 
+    /// @brief Get the type of the object
+    /// @return The type of the object
     virtual type_mat get_type_object() const override { return type_mat::mat_qua; }
 
     /// @brief Get a reference to the real part

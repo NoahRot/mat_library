@@ -32,7 +32,7 @@ class Quaternion;
 template<typename T, uint32_t N>
 class BaseVector : public MatObject<T,N> {
 public:
-    // === Define iterators ===
+    // === Mat Object using ===
 
     using typename MatObject<T, N>::iterator; 
     using typename MatObject<T, N>::const_iterator;
@@ -57,8 +57,6 @@ public:
     /// @param init_list Initializer list containing the components
     BaseVector(const std::initializer_list<T>& init_list);
 
-    virtual ~BaseVector() {}
-
 //    __  __     _   _            _    
 //   |  \/  |___| |_| |_  ___  __| |___
 //   | |\/| / -_)  _| ' \/ _ \/ _` (_-<
@@ -67,19 +65,13 @@ public:
 
     // === Utils ===
 
+    /// @brief Get the type of the object
+    /// @return The type of the object
     virtual type_mat get_type_object() const override { return type_mat::mat_bve; }
-
-    /// @brief Get a constant reference to the array of components
-    /// @return A constant reference to the array of components
-    const std::array<T,N>& data() const;
 
     /// @brief Get the size (dimension) of the vector
     /// @return The size (dimension) of the vector
     uint32_t size() const;
-
-    /// @brief Copy data into the vector
-    /// @param start A pointer to the first element that will be copy
-    void copy(T* start);
 
 //     ___                     _              
 //    / _ \ _ __  ___ _ _ __ _| |_ ___ _ _ ___
@@ -99,18 +91,6 @@ public:
     /// @return A reference to the element
     T& operator[](uint32_t index);
 
-    // === Comparison operators ===
-
-    /// @brief Is equal operator (true if all components are equal)
-    /// @param v The vector that will be compared
-    /// @return If the vectors are equal
-    bool operator==(const BaseVector<T,N>& v) const;
-
-    /// @brief Is different operator (true if at least one component is different)
-    /// @param v The vector that will be compared
-    /// @return If the vectors are different
-    bool operator!=(const BaseVector<T,N>& v) const;
-
     // === Cast operator ===
 
     /// @brief Cast to a vector
@@ -124,9 +104,6 @@ public:
     /// @warning Only if N = 4
     operator Quaternion<T>&();
 
-protected:
-    // Components of the vector
-    // std::array<T,N> m_component;
 };
 
 
@@ -163,11 +140,6 @@ uint32_t BaseVector<T,N>::size() const {
 }
 
 template<typename T, uint32_t N>
-void BaseVector<T,N>::copy(T* start) {
-    std::copy(start, start+N, m_component.begin());
-}
-
-template<typename T, uint32_t N>
 const T& BaseVector<T,N>::operator[](uint32_t index) const {
     return m_component[index];
 }
@@ -175,23 +147,6 @@ const T& BaseVector<T,N>::operator[](uint32_t index) const {
 template<typename T, uint32_t N>
 T& BaseVector<T,N>::operator[](uint32_t index) {
     return m_component[index];
-}
-
-template<typename T, uint32_t N>
-bool BaseVector<T,N>::operator==(const BaseVector<T,N>& v) const {
-    const_iterator it = v.begin();
-    for (auto i : m_component) {
-        if (i != *it) {
-            return false;
-        }
-        ++it;
-    }
-    return true;
-}
-
-template<typename T, uint32_t N>
-bool BaseVector<T,N>::operator!=(const BaseVector<T,N>& v) const {
-    return !(*this == v);
 }
 
 template<typename T, uint32_t N>

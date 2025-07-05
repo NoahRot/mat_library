@@ -7,6 +7,7 @@
 
 namespace mat {
 
+/// @brief Type of MatObject that exist
 enum class type_mat {
     mat_bve,
     mat_vec,
@@ -16,6 +17,7 @@ enum class type_mat {
     mat_unvalid_mat_type
 };
 
+/// @brief Type of content in the MatObject that are allowed
 enum class type_content {
     mat_int8,
     mat_uint8,
@@ -33,6 +35,8 @@ enum class type_content {
     mat_unvalid_type
 };
 
+/// @brief Function to get the type of content (see specialisation below)
+/// @tparam T Type of content
 template<typename T>
 struct type_traits {
     static constexpr type_content value = type_content::mat_unvalid_type;
@@ -51,12 +55,17 @@ template<> struct type_traits<double>        { static constexpr type_content val
 template<> struct type_traits<long double>   { static constexpr type_content value = type_content::mat_long_double; };
 template<> struct type_traits<char>          { static constexpr type_content value = type_content::mat_char; };
 
+/// @brief Get the type enum value
+/// @tparam T The type
+/// @return The enum value, or unvalid value if not supported type
 template<typename T>
 type_content get_type() {
     return type_traits<T>::value;
 }
 
-
+/// @brief Transform a type of MatObject in a string
+/// @param t Type of MatObject
+/// @return A string refering to the type of the MatObject
 inline std::string to_str(type_mat t) {
     switch (t) {
         case type_mat::mat_bve: return "bve";
@@ -68,6 +77,9 @@ inline std::string to_str(type_mat t) {
     }
 }
 
+/// @brief Transform a string to the type of MatObject
+/// @param t The string
+/// @return The type of MatObject
 inline type_mat to_type_mat(std::string t) {
     if (t == "bve") { return type_mat::mat_bve; }
     if (t == "vec") { return type_mat::mat_vec; }
@@ -78,6 +90,9 @@ inline type_mat to_type_mat(std::string t) {
     return type_mat::mat_unvalid_mat_type;
 }
 
+/// @brief Transform a type of content in a string
+/// @param t Type of content
+/// @return A string refering to the type of the content
 inline std::string to_str(type_content t) {
     switch (t) {
         case type_content::mat_int8:            return "int8";
@@ -98,6 +113,9 @@ inline std::string to_str(type_content t) {
     }
 }
 
+/// @brief Transform a string to the type of content
+/// @param t The string
+/// @return The type of content
 inline type_content to_type_content(std::string t) {
     if (t == "int8")            { return type_content::mat_int8; }
     if (t == "uint8")           { return type_content::mat_uint8; }

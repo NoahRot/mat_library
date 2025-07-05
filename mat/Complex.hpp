@@ -20,10 +20,12 @@ class Vector;
 //    \___|_\__,_/__/__/
 //                      
 
+/// @brief Complex number
+/// @tparam T Type of complex
 template<typename T>
 class Complex : public BaseVector<T,2> {
 public:
-    // === Base Vector using ===
+    // === Mat Object using ===
     
     using typename MatObject<T, 2>::iterator; 
     using typename MatObject<T, 2>::const_iterator;
@@ -64,6 +66,8 @@ public:
 //   |_|  |_\___|\__|_||_\___/\__,_/__/
 //                                     
 
+    /// @brief Get the type of the object
+    /// @return The type of the object
     virtual type_mat get_type_object() const override { return type_mat::mat_com; }
 
     /// @brief Get the real part

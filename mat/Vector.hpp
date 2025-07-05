@@ -25,7 +25,7 @@ template<typename T, uint32_t N>
 class Vector : public BaseVector<T,N> {
 
 public:
-    // === Base Vector using ===
+    // === Mat Object using ===
     
     using typename MatObject<T, N>::iterator; 
     using typename MatObject<T, N>::const_iterator;
@@ -60,6 +60,8 @@ public:
 //   |_|  |_\___|\__|_||_\___/\__,_/__/
 //                                     
 
+    /// @brief Get the type of the object
+    /// @return The type of the object
     virtual type_mat get_type_object() const override { return type_mat::mat_vec; }
 
     /// @brief Compute the square of the norm

@@ -14,6 +14,13 @@
 
 namespace mat {
 
+/// @brief Serialization of a MatObject in a text format 
+/// @tparam T Type of content
+/// @tparam SIZE Size of the MatObject
+/// @param obj The MatObject
+/// @param file_path The path to the file to store the data
+/// @param separator What separate the components
+/// @return True if the process succeeded, false otherwise
 template<typename T, uint32_t SIZE>
 bool save_txt(const MatObject<T,SIZE>& obj, std::string file_path, char separator = ' ') {
     // Open file
@@ -45,6 +52,13 @@ bool save_txt(const MatObject<T,SIZE>& obj, std::string file_path, char separato
     return true;
 }
 
+/// @brief Deserialization of a MatObject from a text file
+/// @tparam T Type of content
+/// @tparam SIZE Size of the MatObject
+/// @param obj The MatObject that will be filled with data
+/// @param file_path The path to the file where the data are stored
+/// @param separator What separate the components
+/// @return True if the process succeeded, false otherwise
 template<typename T, uint32_t SIZE>
 bool load_txt(MatObject<T,SIZE>& obj, std::string file_path, char separator = ' ') {
     // Open file
@@ -110,19 +124,27 @@ bool load_txt(MatObject<T,SIZE>& obj, std::string file_path, char separator = ' 
     uint32_t count(0);
     while (iss >> val) {
         if (count >= SIZE) {
-            throw std::runtime_error("MAT_ERROR : Serialized data bigger than actual structure");
+            std::cout << "MAT_ERROR : Serialized data bigger than actual structure" << std::endl;
+            return false;
         }
         data[count] = val;
         ++count;
     }
 
     if (count < SIZE) {
-        throw std::runtime_error("MAT_ERROR : Serialized data smaller than actual structure");
+        std::cout << "MAT_ERROR : Serialized data smaller than actual structure" << std::endl;
+        return false;
     }
 
     return true;
 }
 
+/// @brief Serialization of a MatObject in a binary format
+/// @tparam T Type of content
+/// @tparam SIZE Size of the MatObject
+/// @param obj The MatObject
+/// @param file_path The path to the file to store the data
+/// @return True if the process succeeded, false otherwise 
 template<typename T, uint32_t SIZE>
 bool save_bin(const MatObject<T,SIZE>& obj, std::string file_path) {
     // Open the file
@@ -149,6 +171,12 @@ bool save_bin(const MatObject<T,SIZE>& obj, std::string file_path) {
     return true;
 }
 
+/// @brief Deserialization of a MatObject from a binary file
+/// @tparam T Type of content
+/// @tparam SIZE Size of the MatObject
+/// @param obj The MatObject that will be filled with data
+/// @param file_path The path to the file where the data are stored
+/// @return True if the process succeeded, false otherwise 
 template<typename T, uint32_t SIZE>
 bool load_bin(MatObject<T,SIZE>& obj, std::string file_path) {
     // Open the file
@@ -156,7 +184,8 @@ bool load_bin(MatObject<T,SIZE>& obj, std::string file_path) {
 
     // Check if the file is open
     if (!stream.is_open()) {
-        throw std::runtime_error("MAT_ERROR: Cannot open file for reading");
+        std::cout << "MAT_ERROR: Cannot open file for reading" << std::endl;
+        return false;
     }
 
     // Load metadata
@@ -168,158 +197,26 @@ bool load_bin(MatObject<T,SIZE>& obj, std::string file_path) {
 
     // Check the metadata
     if (mat_t != (uint32_t)obj.get_type_object()) {
-        throw std::runtime_error("MAT_ERROR: mat type do not match");
+        std::cout << "MAT_ERROR: mat type do not match" << std::endl;
+        return false;
     }
     if (t != (uint32_t)get_type<T>()) {
-        throw std::runtime_error("MAT_ERROR: type of content do not match");
+        std::cout << "MAT_ERROR: type of content do not match" << std::endl;
+        return false;
     }
     if (SIZE != size) {
-        throw std::runtime_error("MAT_ERROR: size do not match");
+        std::cout << "MAT_ERROR: size do not match" << std::endl;
+        return false;
     }
 
     // Read data
     stream.read(reinterpret_cast<char*>(obj.begin()), sizeof(T) * size);
     if (!stream) {
-        throw std::runtime_error("MAT_ERROR: Incomplete vector data");
-    }
-
-    return true;
-}
-
-/*
-
-template<typename T, uint32_t N>
-bool save_bin(const BaseVector<T,N>& vec, std::string file_path) {
-    // Open the file
-    std::ofstream stream(file_path, std::ios::binary);
-
-    // Check if the file is open
-    if (!stream.is_open()) {
-        std::cerr << "MAT_ERROR: Cannot open file for writing: " << file_path << std::endl;
+        std::cout << "MAT_ERROR: Incomplete vector data" << std::endl;
         return false;
     }
 
-    // Write metadata
-    uint32_t mat_t = (uint32_t)get_mat_type(&vec);
-    uint32_t t = (uint32_t)get_type<T>();
-    uint32_t size = N;
-    
-    stream.write(reinterpret_cast<const char*>(&mat_t), sizeof(uint32_t));
-    stream.write(reinterpret_cast<const char*>(&t), sizeof(uint32_t));
-    stream.write(reinterpret_cast<const char*>(&size), sizeof(uint32_t));
-
-    // Write content
-    stream.write(reinterpret_cast<const char*>(vec.begin()), sizeof(T) * N);
-
     return true;
 }
 
-
-template<typename T, uint32_t N, uint32_t M>
-bool save_bin(const Matrix<T,N,M>& mat, std::string file_path) {
-    // Open the file
-    std::ofstream stream(file_path, std::ios::binary);
-
-    // Check if the file is open
-    if (!stream.is_open()) {
-        std::cerr << "MAT_ERROR: Cannot open file for writing: " << file_path << std::endl;
-        return false;
-    }
-
-    // Write metadata
-    uint32_t mat_t = (uint32_t)mat_type::mat_mat;
-    uint32_t t = (uint32_t)get_type<T>();
-    uint32_t row = N;
-    uint32_t column = M;
-    
-    stream.write(reinterpret_cast<const char*>(&mat_t), sizeof(uint32_t));
-    stream.write(reinterpret_cast<const char*>(&t), sizeof(uint32_t));
-    stream.write(reinterpret_cast<const char*>(&row), sizeof(uint32_t));
-    stream.write(reinterpret_cast<const char*>(&column), sizeof(uint32_t));
-
-    // Write content
-    const std::array<T, N*M>& data = mat.data();
-    stream.write(reinterpret_cast<const char*>(data.data()), sizeof(T) * N * M);
-
-    return true;
-}
-
-template<typename T, uint32_t N>
-bool load_bin(BaseVector<T,N>& vec, std::string file_path) {
-    // Open the file
-    std::ifstream stream(file_path, std::ios::binary);
-
-    // Check if the file is open
-    if (!stream.is_open()) {
-        throw std::runtime_error("MAT_ERROR: Cannot open file for reading");
-    }
-
-    // Load metadata
-    uint32_t mat_t, t, size;
-
-    stream.read(reinterpret_cast<char*>(&mat_t), sizeof(uint32_t));
-    stream.read(reinterpret_cast<char*>(&t), sizeof(uint32_t));
-    stream.read(reinterpret_cast<char*>(&size), sizeof(uint32_t));
-
-    // Check the metadata
-    if (mat_t != (uint32_t)get_mat_type(&vec)) {
-        throw std::runtime_error("MAT_ERROR: mat type do not match");
-    }
-    if (t != (uint32_t)get_type<T>()) {
-        throw std::runtime_error("MAT_ERROR: type of content do not match");
-    }
-    if (N != size) {
-        throw std::runtime_error("MAT_ERROR: size do not match");
-    }
-
-    // Read data
-    stream.read(reinterpret_cast<char*>(vec.begin()), sizeof(T) * size);
-    if (!stream) {
-        throw std::runtime_error("MAT_ERROR: Incomplete vector data");
-    }
-
-    return true;
-}
-
-template<typename T, uint32_t N, uint32_t M>
-bool load_bin(Matrix<T,N,M>& mat, std::string file_path) {
-    // Open the file
-    std::ifstream stream(file_path, std::ios::binary);
-
-    // Check if the file is open
-    if (!stream.is_open()) {
-        throw std::runtime_error("MAT_ERROR: Cannot open file for reading");
-    }
-
-    // Load metadata
-    uint32_t mat_t, t, row, column;
-
-    stream.read(reinterpret_cast<char*>(&mat_t), sizeof(uint32_t));
-    stream.read(reinterpret_cast<char*>(&t), sizeof(uint32_t));
-    stream.read(reinterpret_cast<char*>(&row), sizeof(uint32_t));
-    stream.read(reinterpret_cast<char*>(&column), sizeof(uint32_t));
-
-    // Check the metadata
-    if (mat_t != (uint32_t)mat_type::mat_mat) {
-        throw std::runtime_error("MAT_ERROR: mat type do not match");
-    }
-    if (t != (uint32_t)get_type<T>()) {
-        throw std::runtime_error("MAT_ERROR: type of content do not match");
-    }
-    if (N != row) {
-        throw std::runtime_error("MAT_ERROR: row do not match");
-    }
-    if (M != column) {
-        throw std::runtime_error("MAT_ERROR: column do not match");
-    }
-
-    // Read data
-    stream.read(reinterpret_cast<char*>(mat.begin()), sizeof(T) * N * M);
-    if (!stream) {
-        throw std::runtime_error("MAT_ERROR: Incomplete vector data");
-    }
-
-    return true;
-}
-*/
 }

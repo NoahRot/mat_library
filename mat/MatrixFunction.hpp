@@ -172,6 +172,12 @@ Matrix<T,N,M> operator/(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) {
 //   |_| \_,_|_||_\__|\__|_\___/_||_/__/
 //                                      
 
+/// @brief Get the minimum value inside the matrix
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m The matrix
+/// @return The minimum component in the matrix
 template<typename T, uint32_t N, uint32_t M>
 T min(const Matrix<T,N,M>& m) {
     T result = m(0,0);
@@ -183,6 +189,13 @@ T min(const Matrix<T,N,M>& m) {
     return result;
 }
 
+/// @brief Compare each component with a value and return a matrix containing the minimum between component and value
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m The matrix
+/// @param a The value
+/// @return A matrix containing the minimum between the component and the value
 template<typename T, uint32_t N, uint32_t M>
 Matrix<T,N,M> min(Matrix<T,N,M> m, T a) {
     for (auto& i : a) {
@@ -193,6 +206,13 @@ Matrix<T,N,M> min(Matrix<T,N,M> m, T a) {
     return m;
 }
 
+/// @brief Compare each component and return a matrix containing the minimum value in each component
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m1 The first matrix
+/// @param m2 The second matrix
+/// @return A matrix containing the minimum between the component of each matrix
 template<typename T, uint32_t N, uint32_t M>
 Matrix<T,N,M> min(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) {
     for (uint32_t i(0) ; i < N*M ; ++i) {
@@ -203,6 +223,12 @@ Matrix<T,N,M> min(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) {
     return m1;
 }
 
+/// @brief Get the maximum value inside the matrix
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m The matrix
+/// @return The maximum component in the matrix
 template<typename T, uint32_t N, uint32_t M>
 T max(const Matrix<T,N,M>& m) {
     T result = m(0,0);
@@ -214,6 +240,13 @@ T max(const Matrix<T,N,M>& m) {
     return result;
 }
 
+/// @brief Compare each component with a value and return a matrix containing the maximum between component and value
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m The matrix
+/// @param a The value
+/// @return A matrix containing the maximum between the component and the value
 template<typename T, uint32_t N, uint32_t M>
 Matrix<T,N,M> max(Matrix<T,N,M> m, T a) {
     for (auto& i : a) {
@@ -224,6 +257,13 @@ Matrix<T,N,M> max(Matrix<T,N,M> m, T a) {
     return m;
 }
 
+/// @brief Compare each component and return a matrix containing the maximum value in each component
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m1 The first matrix
+/// @param m2 The second matrix
+/// @return A matrix containing the maximum between the component of each matrix
 template<typename T, uint32_t N, uint32_t M>
 Matrix<T,N,M> max(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) {
     for (uint32_t i(0) ; i < N*M ; ++i) {
@@ -234,6 +274,12 @@ Matrix<T,N,M> max(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) {
     return m1;
 }
 
+/// @brief Apply absolute value to each component of a matrix
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m The matrix
+/// @return A matrix with absolute value apply to each component
 template<typename T, uint32_t N, uint32_t M>
 Matrix<T,N,M> abs(Matrix<T,N,M> m) {
     T zero(0);
@@ -245,6 +291,12 @@ Matrix<T,N,M> abs(Matrix<T,N,M> m) {
     return m;
 }
 
+/// @brief Apply sign function to each component of a matrix
+/// @tparam T The type of matrix
+/// @tparam N Row
+/// @tparam M Column
+/// @param m The matrix
+/// @return A matrix with sign function apply to each component
 template<typename T, uint32_t N, uint32_t M>
 Matrix<T,N,M> sign(Matrix<T,N,M> m) {
     T zero(0);

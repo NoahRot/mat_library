@@ -36,7 +36,8 @@ Index of ai,j = i + j*N
 template<typename T, uint32_t N, uint32_t M>
 class Matrix : public MatObject<T,N*M> {
 public:
-    // === Iterators ===
+    // === Mat Object using ===
+
     using typename MatObject<T, N*M>::iterator; 
     using typename MatObject<T, N*M>::const_iterator;
     using MatObject<T, N*M>::m_component;
@@ -85,6 +86,8 @@ public:
 
     // === Utils ===
 
+    /// @brief Get the type of the object
+    /// @return The type of the object
     virtual type_mat get_type_object() const override { return type_mat::mat_mat; }
 
     /// @brief Get the size of the matrix
@@ -194,10 +197,7 @@ public:
     /// @param v Matrix
     /// @return Reference to the matrix
     Matrix& operator/=(const Matrix<T,N,M>& v);
-
-private:
-    // Components of the matrix
-    // std::array<T,N*M> m_component;
+    
 };
 
 
