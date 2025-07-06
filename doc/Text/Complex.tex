@@ -1,0 +1,269 @@
+\subsection{Complex  class}
+Complex number
+\begin{lstlisting}[language=C++]
+template<typename T> class Complex 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of complex \\ 
+
+\subsubsection{Complex}
+\begin{mdframed}
+Default constructor, fill the vector with value 0
+\begin{lstlisting}[language=C++]
+Complex()
+\end{lstlisting}
+\end{mdframed}
+
+\begin{mdframed}
+Constructor with only a real part
+\begin{lstlisting}[language=C++]
+Complex(T re)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{re} Real part \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor with a real and an imaginary part
+\begin{lstlisting}[language=C++]
+Complex(T re, T im)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{re} Real part \\ 
+\textit{im} Imaginary part \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy an array
+\begin{lstlisting}[language=C++]
+Complex(const std::array<T,2>& init_array)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_array} Initial array \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy an initializer list
+\begin{lstlisting}[language=C++]
+Complex(const std::initializer_list<T>& init_list)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_list} Initializer list \\ 
+\end{mdframed}
+
+\subsubsection{get\_type\_object}
+\begin{mdframed}
+Get the type of the object
+\begin{lstlisting}[language=C++]
+virtual type_mat get_type_object() const override 
+\end{lstlisting}
+\textbf{Return} \\ 
+The type of the object\\ 
+\end{mdframed}
+
+\subsubsection{real}
+\begin{mdframed}
+Get the real part
+\begin{lstlisting}[language=C++]
+T& real()
+\end{lstlisting}
+\textbf{Return} \\ 
+A reference to the real part\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the real part
+\begin{lstlisting}[language=C++]
+const T& real() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A constant reference to the real part\\ 
+\end{mdframed}
+
+\subsubsection{imag}
+\begin{mdframed}
+Get the imaginary part
+\begin{lstlisting}[language=C++]
+T& imag()
+\end{lstlisting}
+\textbf{Return} \\ 
+A reference to the imaginary part\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the imaginary part
+\begin{lstlisting}[language=C++]
+const T& imag() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A constant reference to the imaginary part\\ 
+\end{mdframed}
+
+\subsubsection{modulus2}
+\begin{mdframed}
+Compute the square modulus
+\begin{lstlisting}[language=C++]
+T modulus2() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The square modulus\\ 
+\end{mdframed}
+
+\subsubsection{modulus}
+\begin{mdframed}
+Compute the modulus
+\begin{lstlisting}[language=C++]
+T modulus() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The modulus\\ 
+\end{mdframed}
+
+\subsubsection{argument}
+\begin{mdframed}
+Compute the argument
+\begin{lstlisting}[language=C++]
+T argument() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The argument\\ 
+\end{mdframed}
+
+\subsubsection{conjugate}
+\begin{mdframed}
+Conjugate the complex
+\begin{lstlisting}[language=C++]
+void conjugate()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{normalize}
+\begin{mdframed}
+Normalize the complex
+\begin{lstlisting}[language=C++]
+void normalize()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{set\_polar}
+\begin{mdframed}
+Set the component from a polar form
+\begin{lstlisting}[language=C++]
+void set_polar(T mod, T argu)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{mod} The modulus of the complex \\ 
+\textit{argu} The argument of the complex \\ 
+\end{mdframed}
+
+\subsubsection{get\_polar}
+\begin{mdframed}
+Get the component from a polar form
+\begin{lstlisting}[language=C++]
+void get_polar(T& magn, T& argu)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{mod} A reference to the modulus of the complex \\ 
+\textit{argu} A reference to the argument of the complex \\ 
+\end{mdframed}
+
+\subsubsection{operator BaseVector<T,2>\&}
+\begin{mdframed}
+Cast to a base vector
+\begin{lstlisting}[language=C++]
+operator BaseVector<T,2>&()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{operator+=}
+\begin{mdframed}
+Add a real number
+\begin{lstlisting}[language=C++]
+Complex& operator+=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add two complex
+\begin{lstlisting}[language=C++]
+Complex& operator+=(const Complex<T>& c)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{c} Complex \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+
+\subsubsection{operator-=}
+\begin{mdframed}
+Substract a real number
+\begin{lstlisting}[language=C++]
+Complex& operator-=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number  \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract two complex
+\begin{lstlisting}[language=C++]
+Complex& operator-=(const Complex<T>& c)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{c} Complex \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+
+\subsubsection{operator*=}
+\begin{mdframed}
+Multiply by a real number
+\begin{lstlisting}[language=C++]
+Complex& operator*=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number  \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply two complex
+\begin{lstlisting}[language=C++]
+Complex& operator*=(const Complex<T>& c)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{c} Complex \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+
+\subsubsection{operator/=}
+\begin{mdframed}
+Divide by a real number
+\begin{lstlisting}[language=C++]
+Complex& operator/=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number  \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Divide two complex
+\begin{lstlisting}[language=C++]
+Complex& operator/=(const Complex<T>& c)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{c} Complex \\ 
+\textbf{Return} \\ 
+Reference to the complex\\ 
+\end{mdframed}
+

@@ -1,0 +1,106 @@
+\subsection{BaseVector  class}
+Class that represent a vector without any operations
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> class BaseVector 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Dimension of the vector \\ 
+
+\subsubsection{BaseVector}
+\begin{mdframed}
+Default constructor (fill with 0)
+\begin{lstlisting}[language=C++]
+BaseVector()
+\end{lstlisting}
+\end{mdframed}
+
+\begin{mdframed}
+Constructor with an array
+\begin{lstlisting}[language=C++]
+BaseVector(const std::array<T,N>& init_array)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_array} Array of the components \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor with an initializer list
+\begin{lstlisting}[language=C++]
+BaseVector(const std::initializer_list<T>& init_list)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_list} Initializer list containing the components \\ 
+\end{mdframed}
+
+\subsubsection{get\_type\_object}
+\begin{mdframed}
+Get the type of the object
+\begin{lstlisting}[language=C++]
+virtual type_mat get_type_object() const override 
+\end{lstlisting}
+\textbf{Return} \\ 
+The type of the object\\ 
+\end{mdframed}
+
+\subsubsection{size}
+\begin{mdframed}
+Get the size (dimension) of the vector
+\begin{lstlisting}[language=C++]
+uint32_t size() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The size (dimension) of the vector\\ 
+\end{mdframed}
+
+\subsubsection{operator[]}
+\begin{mdframed}
+Constant accessor operator
+\begin{lstlisting}[language=C++]
+const T& operator[](uint32_t index) const
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{index} Index of the element \\ 
+\textbf{Return} \\ 
+A constant reference to the element\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Accessor operator
+\begin{lstlisting}[language=C++]
+T& operator[](uint32_t index)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{index} Index of the element \\ 
+\textbf{Return} \\ 
+A reference to the element\\ 
+\end{mdframed}
+
+\subsubsection{operator Vector<T,N>\&}
+\begin{mdframed}
+Cast to a vector
+\begin{lstlisting}[language=C++]
+operator Vector<T,N>&()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{operator Complex<T>\&}
+\begin{mdframed}
+Cast to a complex
+\begin{lstlisting}[language=C++]
+operator Complex<T>&()
+\end{lstlisting}
+\textbf{Warning} \\ 
+Only if N = 2\\ 
+\end{mdframed}
+
+\subsubsection{operator Quaternion<T>\&}
+\begin{mdframed}
+Cast to a quaternion
+\begin{lstlisting}[language=C++]
+operator Quaternion<T>&()
+\end{lstlisting}
+\textbf{Warning} \\ 
+Only if N = 4\\ 
+\end{mdframed}
+

@@ -1,0 +1,317 @@
+\subsubsection{operator<<}
+\begin{mdframed}
+Stream operator, write the quaternion into a stream
+\begin{lstlisting}[language=C++]
+template<typename T> std::ostream& operator<<(std::ostream& stream, const Quaternion<T>& q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{stream} The stream \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The stream with the modifications\\ 
+\end{mdframed}
+
+\subsubsection{operator+}
+\begin{mdframed}
+Add a real to a quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator+(Quaternion<T> q, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textit{a} The real \\ 
+\textbf{Return} \\ 
+The new quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add a real to a quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator+(T a, Quaternion<T> q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{a} The real \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The new quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Addition of two quaternions
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator+(Quaternion<T> q1, const Quaternion<T>& q2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q1} First quaternion \\ 
+\textit{q2} Second quaternion \\ 
+\textbf{Return} \\ 
+The addition of the quaternion\\ 
+\end{mdframed}
+
+\subsubsection{operator-}
+\begin{mdframed}
+Substract a real to a quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator-(Quaternion<T> q, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textit{a} The real \\ 
+\textbf{Return} \\ 
+The new quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract a quaternion to a real
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator-(T a, Quaternion<T> q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{a} The real \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The new quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substraction of two quaternions
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator-(Quaternion<T> q1, const Quaternion<T>& q2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q1} First quaternion \\ 
+\textit{q2} Second quaternion \\ 
+\textbf{Return} \\ 
+The substraction of the quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply the quaternion by -1
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator-(const Quaternion<T>& q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+Minus the quaternion (-q)\\ 
+\end{mdframed}
+
+\subsubsection{operator*}
+\begin{mdframed}
+Multiply a quaternion by a real
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator*(Quaternion<T> q, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textit{a} The real \\ 
+\textbf{Return} \\ 
+The new quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply a quaternion by a real
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator*(T a, Quaternion<T> q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{a} The real \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The new quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiplication of two quaternions
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator*(Quaternion<T> q1, const Quaternion<T>& q2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q1} First quaternion \\ 
+\textit{q2} Second quaternion \\ 
+\textbf{Return} \\ 
+The multiplication of the quaternion\\ 
+\end{mdframed}
+
+\subsubsection{operator/}
+\begin{mdframed}
+Divide a quaternion by a real
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> operator/(Quaternion<T> q, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textit{a} The real \\ 
+\textbf{Return} \\ 
+The new quaternion\\ 
+\end{mdframed}
+
+\subsubsection{quat\_to\_rotation3}
+\begin{mdframed}
+From a quaternion to a rotation matrix (3x3)
+\begin{lstlisting}[language=C++]
+template<typename T> Matrix<T,3,3> quat_to_rotation3(const Quaternion<T>& q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The rotation matrix (3x3)\\ 
+\end{mdframed}
+
+\subsubsection{quat\_to\_rotation4}
+\begin{mdframed}
+From a quaternion to a rotation matrix (4x4)
+\begin{lstlisting}[language=C++]
+template<typename T> Matrix<T,4,4> quat_to_rotation4(const Quaternion<T>& q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The rotation matrix (4x4) (last line and column fill with 0 except the diagonal term which is 1)\\ 
+\end{mdframed}
+
+\subsubsection{quat\_to\_vec\_of\_rotation}
+\begin{mdframed}
+Get the vector of the rotation
+\begin{lstlisting}[language=C++]
+template<typename T> Vector<T,3> quat_to_vec_of_rotation(const Quaternion<T>& q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The vector of rotation\\ 
+\end{mdframed}
+
+\subsubsection{quat\_to\_angle\_of\_rotation}
+\begin{mdframed}
+Get the angle of rotation
+\begin{lstlisting}[language=C++]
+template<typename T> T quat_to_angle_of_rotation(const Quaternion<T>& q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The angle of rotation\\ 
+\end{mdframed}
+
+\subsubsection{quat\_from\_angle\_vec\_of\_rotation}
+\begin{mdframed}
+Compute a quaternion from a vector of rotation and  an angle
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> quat_from_angle_vec_of_rotation(T angle, Vector<T,3> vec) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{angle} The angle \\ 
+\textit{vec} The vector of rotation \\ 
+\textbf{Return} \\ 
+The quaternion that represent the rotation\\ 
+\end{mdframed}
+
+\subsubsection{euler\_angle\_to\_quat}
+\begin{mdframed}
+Compute the quaternion from the Euler angles
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> euler_angle_to_quat(T roll, T pitch, T yaw) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{roll} Roll angle (around x) \\ 
+\textit{pitch} Pitch angle (around y) \\ 
+\textit{yaw} Yaw angle (around z) \\ 
+\textbf{Return} \\ 
+The quaternion that represent the rotation\\ 
+\end{mdframed}
+
+\subsubsection{quat\_to\_euler\_angle}
+\begin{mdframed}
+Get the Euler angles from a quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> void quat_to_euler_angle(const Quaternion<T>& q, T& roll, T& pitch, T& yaw) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textit{roll} Reference to the roll angle (around x) \\ 
+\textit{pitch} Reference to the pitch angle (around y) \\ 
+\textit{yaw} Reference to the yaw angle (around z) \\ 
+\end{mdframed}
+
+\subsubsection{quat\_rotate\_vec}
+\begin{mdframed}
+Rotate a vector using a quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> Vector<T,3> quat_rotate_vec(const Quaternion<T>& q, const Vector<T,3>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion and vector \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The rotated vector\\ 
+\end{mdframed}
+
+\subsubsection{conjugate}
+\begin{mdframed}
+Conjugate the quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> conjugate(Quaternion<T> q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The conjugated quaternion\\ 
+\end{mdframed}
+
+\subsubsection{inverse}
+\begin{mdframed}
+Inverse the quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> Quaternion<T> inverse(const Quaternion<T>& q) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+The inversed quaternion\\ 
+\end{mdframed}
+

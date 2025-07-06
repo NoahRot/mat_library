@@ -1,0 +1,152 @@
+\subsubsection{operator<<}
+\begin{mdframed}
+Stream operator, write the vector into a stream
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> std::ostream& operator<<(std::ostream& stream, const BaseVector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{stream} The stream \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The stream with the modifications\\ 
+\end{mdframed}
+
+\subsubsection{cast}
+\begin{mdframed}
+Cast a vector of type 1 to another vector of type 2
+\begin{lstlisting}[language=C++]
+template<typename T1, typename T2, uint32_t N> BaseVector<T2,N> cast(const BaseVector<T1,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T1} Current type \\ 
+\textit{T2} New type \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The current vector \\ 
+\textbf{Return} \\ 
+The vector of the new type\\ 
+\end{mdframed}
+
+\subsubsection{min}
+\begin{mdframed}
+Get the minimum value of a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> T min(const BaseVector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The smallest component\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the minimum between components and a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> BaseVector<T,N> min(BaseVector<T,N> v, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+A vector with minimum between the component and the scalar\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the minimum for each components of two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> BaseVector<T,N> min(BaseVector<T,N> v1, const BaseVector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vectors \\ 
+\textit{N} Size of vectors \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+A vector containing the smallest values between the components of the two vectors\\ 
+\end{mdframed}
+
+\subsubsection{max}
+\begin{mdframed}
+Get the maximum value of a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> T max(const BaseVector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The biggest component\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the maximum between components and a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> BaseVector<T,N> max(BaseVector<T,N> v, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+A vector with maximum between the component and the scalar\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the maximum for each components of two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> BaseVector<T,N> max(BaseVector<T,N> v1, const BaseVector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vectors \\ 
+\textit{N} Size of vectors \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+A vector containing the biggest values between the components of the two vectors\\ 
+\end{mdframed}
+
+\subsubsection{abs}
+\begin{mdframed}
+Return a vector with absolute components
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> BaseVector<T,N> abs(const BaseVector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The vector with absolute component\\ 
+\end{mdframed}
+
+\subsubsection{sign}
+\begin{mdframed}
+Return a vector of +1 or -1 whether the component is > 0 or < 0
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> BaseVector<T,N> sign(BaseVector<T,N> v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+A vector of the sign of the components\\ 
+\end{mdframed}
+

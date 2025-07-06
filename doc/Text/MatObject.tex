@@ -1,0 +1,148 @@
+\subsection{MatObject  class}
+The base class for all object in the MAT library that need multiple components
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t SIZE> class MatObject 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the content \\ 
+\textit{SIZE} Number of components in the object \\ 
+
+\subsubsection{MatObject}
+\begin{mdframed}
+Constructor
+\begin{lstlisting}[language=C++]
+MatObject()
+\end{lstlisting}
+\textbf{Warning} \\ 
+Throw a runtime error if the content type is unvalid\\ 
+\end{mdframed}
+
+\subsubsection{get\_type\_object}
+\begin{mdframed}
+Get the type of the MatObject
+\begin{lstlisting}[language=C++]
+virtual type_mat get_type_object() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+Type of the MatObject\\ 
+\end{mdframed}
+
+\subsubsection{get\_type\_content}
+\begin{mdframed}
+Get the type of the content of the Type of the MatObject
+\begin{lstlisting}[language=C++]
+type_content get_type_content() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+Type of the content in the MatObject\\ 
+\end{mdframed}
+
+\subsubsection{get\_array\_size}
+\begin{mdframed}
+Get the size of the array containing the component of the MatObject
+\begin{lstlisting}[language=C++]
+uint32_t get_array_size() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+Number of component in the MatObject\\ 
+\end{mdframed}
+
+\subsubsection{data}
+\begin{mdframed}
+Get a constant reference to the array of the MatObject
+\begin{lstlisting}[language=C++]
+const std::array<T,SIZE>& data() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+A constant reference to the array\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get a reference to the array of the MatObject
+\begin{lstlisting}[language=C++]
+std::array<T,SIZE>& data() 
+\end{lstlisting}
+\textbf{Return} \\ 
+A reference to the array\\ 
+\end{mdframed}
+
+\subsubsection{copy}
+\begin{mdframed}
+Copy data into the MatObject
+\begin{lstlisting}[language=C++]
+void copy(T* start)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{start} A pointer to the first element that will be copy \\ 
+\end{mdframed}
+
+\subsubsection{operator==}
+\begin{mdframed}
+Is equal operator (true if all components are equal)
+\begin{lstlisting}[language=C++]
+bool operator==(const MatObject<T,SIZE>& m) const
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} The MatObject that will be compared \\ 
+\textbf{Return} \\ 
+If the MatObjects are equal\\ 
+\end{mdframed}
+
+\subsubsection{operator!=}
+\begin{mdframed}
+Is different operator (true if at least one component is different)
+\begin{lstlisting}[language=C++]
+bool operator!=(const MatObject<T,SIZE>& v) const
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} The MatObject that will be compared \\ 
+\textbf{Return} \\ 
+If the MatObjects are different\\ 
+\end{mdframed}
+
+\subsubsection{begin}
+\begin{mdframed}
+Get the begin iterator
+\begin{lstlisting}[language=C++]
+iterator begin()
+\end{lstlisting}
+\textbf{Return} \\ 
+The begin iterator\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the constant begin iterator
+\begin{lstlisting}[language=C++]
+const_iterator begin() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The constant begin iterator\\ 
+\end{mdframed}
+
+\subsubsection{end}
+\begin{mdframed}
+Get the end iterator
+\begin{lstlisting}[language=C++]
+iterator end()
+\end{lstlisting}
+\textbf{Return} \\ 
+The end iterator\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the constant end iterator
+\begin{lstlisting}[language=C++]
+const_iterator end() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The constant end iterator\\ 
+\end{mdframed}
+
+\subsubsection{m\_component}
+\begin{mdframed}
+Component of the object
+\begin{lstlisting}[language=C++]
+std::array<T, SIZE> m_component
+\end{lstlisting}
+\end{mdframed}
+

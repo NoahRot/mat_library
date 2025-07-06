@@ -1,0 +1,306 @@
+\subsection{Quaternion  class}
+Quaternion
+\begin{lstlisting}[language=C++]
+template<typename T> class Quaternion 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of quaternion \\ 
+
+\subsubsection{Quaternion}
+\begin{mdframed}
+Default constructor, quaternion is zero
+\begin{lstlisting}[language=C++]
+Quaternion()
+\end{lstlisting}
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, quaternion is equal to a real number
+\begin{lstlisting}[language=C++]
+Quaternion(T real)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{real} The real number \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, use a real part (scalar) and an imaginary part (vector 3)
+\begin{lstlisting}[language=C++]
+Quaternion(T real, const Vector<T,3>& imag)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{real} Real part (scalar) \\ 
+\textit{imag} Imaginary part (vector 3) \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, use a real part (scalar) and an imaginary part (array 3)
+\begin{lstlisting}[language=C++]
+Quaternion(T real, const std::array<T,3>& imag)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{real} Real part (scalar) \\ 
+\textit{imag} Imaginary part (array 3) \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, fill each component real, i, j, k
+\begin{lstlisting}[language=C++]
+Quaternion(T real, T i, T j, T k)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{real} Real component \\ 
+\textit{i} i component \\ 
+\textit{j} j component \\ 
+\textit{k} k component \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, use an initial array 4
+\begin{lstlisting}[language=C++]
+Quaternion(const std::array<T,4>& init_array)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_array} Initial array \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, use an initializer list
+\begin{lstlisting}[language=C++]
+Quaternion(const std::initializer_list<T>& init_list)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_list} Initializer list \\ 
+\end{mdframed}
+
+\subsubsection{get\_type\_object}
+\begin{mdframed}
+Get the type of the object
+\begin{lstlisting}[language=C++]
+virtual type_mat get_type_object() const override 
+\end{lstlisting}
+\textbf{Return} \\ 
+The type of the object\\ 
+\end{mdframed}
+
+\subsubsection{r}
+\begin{mdframed}
+Get a reference to the real part
+\begin{lstlisting}[language=C++]
+T& r()
+\end{lstlisting}
+\textbf{Return} \\ 
+A reference to the real part\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get a constant reference to the real part
+\begin{lstlisting}[language=C++]
+const T& r() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A constant reference to the real part\\ 
+\end{mdframed}
+
+\subsubsection{i}
+\begin{mdframed}
+Get a reference to the i part
+\begin{lstlisting}[language=C++]
+T& i()
+\end{lstlisting}
+\textbf{Return} \\ 
+A reference to the i part\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get a constant reference to the i part
+\begin{lstlisting}[language=C++]
+const T& i() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A constant reference to the i part\\ 
+\end{mdframed}
+
+\subsubsection{j}
+\begin{mdframed}
+Get a reference to the j part
+\begin{lstlisting}[language=C++]
+T& j()
+\end{lstlisting}
+\textbf{Return} \\ 
+A reference to the j part\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get a constant reference to the j part
+\begin{lstlisting}[language=C++]
+const T& j() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A constant reference to the j part\\ 
+\end{mdframed}
+
+\subsubsection{k}
+\begin{mdframed}
+Get a reference to the k part
+\begin{lstlisting}[language=C++]
+T& k()
+\end{lstlisting}
+\textbf{Return} \\ 
+A reference to the k part\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get a constant reference to the k part
+\begin{lstlisting}[language=C++]
+const T& k() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A constant reference to the k part\\ 
+\end{mdframed}
+
+\subsubsection{norm2}
+\begin{mdframed}
+Compute the square of the norm
+\begin{lstlisting}[language=C++]
+T norm2() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The square of the norm\\ 
+\end{mdframed}
+
+\subsubsection{norm}
+\begin{mdframed}
+Compute the norm
+\begin{lstlisting}[language=C++]
+T norm() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The norm\\ 
+\end{mdframed}
+
+\subsubsection{normalize}
+\begin{mdframed}
+Normalize the quaternion
+\begin{lstlisting}[language=C++]
+void normalize()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{conjugate}
+\begin{mdframed}
+Conjugate the quaternion
+\begin{lstlisting}[language=C++]
+void conjugate()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{real}
+\begin{mdframed}
+Get a copy of the real component
+\begin{lstlisting}[language=C++]
+T real() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A copy of the real component\\ 
+\end{mdframed}
+
+\subsubsection{imag}
+\begin{mdframed}
+Get a copy of the imaginary components
+\begin{lstlisting}[language=C++]
+Vector<T,3> imag() const
+\end{lstlisting}
+\textbf{Return} \\ 
+A vector 3 of the imaginary components\\ 
+\end{mdframed}
+
+\subsubsection{operator BaseVector<T,4>\&}
+\begin{mdframed}
+Cast to a base vector
+\begin{lstlisting}[language=C++]
+operator BaseVector<T,4>&()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{operator+=}
+\begin{mdframed}
+Add a real number
+\begin{lstlisting}[language=C++]
+Quaternion& operator+=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+Reference to quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add a quaternion
+\begin{lstlisting}[language=C++]
+Quaternion& operator+=(const Quaternion<T>& q)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+Reference to quaternion\\ 
+\end{mdframed}
+
+\subsubsection{operator-=}
+\begin{mdframed}
+Substract a real number
+\begin{lstlisting}[language=C++]
+Quaternion& operator-=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+Reference to quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract a quaternion
+\begin{lstlisting}[language=C++]
+Quaternion& operator-=(const Quaternion<T>& q)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+Reference to quaternion\\ 
+\end{mdframed}
+
+\subsubsection{operator*=}
+\begin{mdframed}
+Multiply the quaternion by a real number
+\begin{lstlisting}[language=C++]
+Quaternion& operator*=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+Reference to quaternion\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply a quaternion
+\begin{lstlisting}[language=C++]
+Quaternion& operator*=(const Quaternion<T>& q)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{q} The quaternion \\ 
+\textbf{Return} \\ 
+Reference to quaternion\\ 
+\end{mdframed}
+
+\subsubsection{operator/=}
+\begin{mdframed}
+Divide the quaternion by a real number
+\begin{lstlisting}[language=C++]
+Quaternion& operator/=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+Reference to quaternion\\ 
+\end{mdframed}
+

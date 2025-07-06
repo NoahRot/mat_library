@@ -1,0 +1,315 @@
+\subsubsection{operator<<}
+\begin{mdframed}
+Stream operator, write the complex into a stream
+\begin{lstlisting}[language=C++]
+template<typename T> std::ostream& operator<<(std::ostream& stream, const Complex<T>& c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{stream} The stream \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+The stream with the modifications\\ 
+\end{mdframed}
+
+\subsubsection{operator+}
+\begin{mdframed}
+Add a real number to a complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator+(Complex<T> c, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The complex \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+The new complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add a real number to a complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator+(T a, Complex<T> c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+The new complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Addition of two complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator+(Complex<T> c1, const Complex<T>& c2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c1} First complex \\ 
+\textit{c2} Second complex \\ 
+\textbf{Return} \\ 
+The addition of the two complex\\ 
+\end{mdframed}
+
+\subsubsection{operator-}
+\begin{mdframed}
+Substract a real number to a complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator-(Complex<T> c, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The complex \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+The new complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract a complex to a real number
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator-(T a, Complex<T> c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+The new complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substraction of two complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator-(Complex<T> c1, const Complex<T>& c2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c1} First complex \\ 
+\textit{c2} Second complex \\ 
+\textbf{Return} \\ 
+The substraction of the two complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply the complex by -1
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator-(const Complex<T>& c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+Minus the complex (-z)\\ 
+\end{mdframed}
+
+\subsubsection{operator*}
+\begin{mdframed}
+Multiply a complex by a real number
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator*(Complex<T> c, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The complex \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+The new complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply a complex by a real number
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator*(T a, Complex<T> c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+The new complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiplication of two complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator*(Complex<T> c1, const Complex<T>& c2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c1} First complex \\ 
+\textit{c2} Second complex \\ 
+\textbf{Return} \\ 
+The multiplication of the two complex\\ 
+\end{mdframed}
+
+\subsubsection{operator/}
+\begin{mdframed}
+Divide a complex by a real number
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator/(Complex<T> c, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The complex \\ 
+\textit{a} The real number \\ 
+\textbf{Return} \\ 
+The newcomplex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Divide a real number by a complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator/(T a, const Complex<T>& c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{a} The real number \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+The new complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Division of two complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> operator/(Complex<T> c1, const Complex<T>& c2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c1} First complex \\ 
+\textit{c2} Second complex \\ 
+\textbf{Return} \\ 
+The division of the two complex\\ 
+\end{mdframed}
+
+\subsubsection{complex\_to\_rotation\_matrix}
+\begin{mdframed}
+Compute the rotation matrix from a complex
+\begin{lstlisting}[language=C++]
+template<typename T> Matrix<T,2,2> complex_to_rotation_matrix(const Complex<T>& c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+The rotation matrix\\ 
+\end{mdframed}
+
+\subsubsection{angle\_to\_complex}
+\begin{mdframed}
+Compute the complex associate to a rotation of an angle
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> angle_to_complex(T angle) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{angle} The angle of rotation \\ 
+\textbf{Return} \\ 
+The complex\\ 
+\end{mdframed}
+
+\subsubsection{complex\_rotate\_vec}
+\begin{mdframed}
+Rotate a vector using a complex as rotation
+\begin{lstlisting}[language=C++]
+template<typename T> Vector<T,2> complex_rotate_vec(const Complex<T>& c, Vector<T,2> v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The type complex \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The rotated vector\\ 
+\end{mdframed}
+
+\subsubsection{conjugate}
+\begin{mdframed}
+Compute the conjugate of a complex
+\begin{lstlisting}[language=C++]
+template<typename T> Complex<T> conjugate(Complex<T> c) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textbf{Parameters} \\ 
+\textit{c} The complex \\ 
+\textbf{Return} \\ 
+The conjugate of the complex\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Compute the conjugate of a complex matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<Complex<T>, N, M> conjugate(Matrix<Complex<T>, N, M> m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textit{N} Row of the matrix \\ 
+\textit{M} Column of the matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The complex matrix \\ 
+\textbf{Return} \\ 
+The conjugate of the matrix\\ 
+\end{mdframed}
+
+\subsubsection{self\_conjugate}
+\begin{mdframed}
+Conjugate a complex matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> void self_conjugate(Matrix<Complex<T>, N, M>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of complex \\ 
+\textit{N} Row of the matrix \\ 
+\textit{M} Column of the matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The complex matrix \\ 
+\end{mdframed}
+
+\subsubsection{conjugate\_transpose}
+\begin{mdframed}
+Compute the conjugate transpose of a complex matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<Complex<T>, M, N> conjugate_transpose(const Matrix<Complex<T>, N, M>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textit{N} Row of the matrix \\ 
+\textit{M} Column of the matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The complex matrix \\ 
+\textbf{Return} \\ 
+The conjugate transpose of the complex matrix\\ 
+\end{mdframed}
+
+\subsubsection{self\_conjugate\_transpose}
+\begin{mdframed}
+Conjugate transpose a complex matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> void self_conjugate_transpose(Matrix<Complex<T>, N, N>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of complex \\ 
+\textit{N} The row and column of the matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The complex matrix \\ 
+\end{mdframed}
+

@@ -1,0 +1,584 @@
+\subsubsection{operator<<}
+\begin{mdframed}
+Stream operator, write the matrix into a stream
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> std::ostream& operator<<(std::ostream& stream, const Matrix<T,N,M>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{stream} The stream \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The stream with the modifications\\ 
+\end{mdframed}
+
+\subsubsection{operator+}
+\begin{mdframed}
+Add a scalar to each element of the matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator+(Matrix<T,N,M> m1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The matrix \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add a scalar to each element of the matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator+(T a, Matrix<T,N,M> m1) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{a} The scalar \\ 
+\textit{m1} The matrix \\ 
+\textbf{Return} \\ 
+The new matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Addition of two matrices
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator+(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+The addition of the matrices\\ 
+\end{mdframed}
+
+\subsubsection{operator-}
+\begin{mdframed}
+Substract a scalar to each element of the matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator-(Matrix<T,N,M> m1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The matrix \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract element of the matrix by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator-(T a, Matrix<T,N,M> m1) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{a} The scalar \\ 
+\textit{m1} The matrix \\ 
+\textbf{Return} \\ 
+The new matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substraction of two matrices
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator-(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+The substraction of the matrices\\ 
+\end{mdframed}
+
+\subsubsection{operator*}
+\begin{mdframed}
+Multiply each component of a matrix by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator*(Matrix<T,N,M> m1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The matrix \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply each component of a matrix by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator*(T a, Matrix<T,N,M> m1) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{a} The scalar \\ 
+\textit{m1} The matrix \\ 
+\textbf{Return} \\ 
+The new matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiplication of each elements of two matrices
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator*(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+The multiplication of each element of the matrices\\ 
+\textbf{Warning} \\ 
+This is not the matrix product. Use dot function for the matrix product\\ 
+\end{mdframed}
+
+\subsubsection{operator/}
+\begin{mdframed}
+Divide each component of a matrix by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator/(Matrix<T,N,M> m1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The matrix \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Division of each elements of two matrices
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> operator/(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+The division of each element of the matrices\\ 
+\textbf{Warning} \\ 
+This is not the matrix product. Use dot function for the matrix product\\ 
+\end{mdframed}
+
+\subsubsection{min}
+\begin{mdframed}
+Get the minimum value inside the matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> T min(const Matrix<T,N,M>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The minimum component in the matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Compare each component with a value and return a matrix containing the minimum between component and value
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> min(Matrix<T,N,M> m, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textit{a} The value \\ 
+\textbf{Return} \\ 
+A matrix containing the minimum between the component and the value\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Compare each component and return a matrix containing the minimum value in each component
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> min(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+A matrix containing the minimum between the component of each matrix\\ 
+\end{mdframed}
+
+\subsubsection{max}
+\begin{mdframed}
+Get the maximum value inside the matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> T max(const Matrix<T,N,M>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The maximum component in the matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Compare each component with a value and return a matrix containing the maximum between component and value
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> max(Matrix<T,N,M> m, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textit{a} The value \\ 
+\textbf{Return} \\ 
+A matrix containing the maximum between the component and the value\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Compare each component and return a matrix containing the maximum value in each component
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> max(Matrix<T,N,M> m1, const Matrix<T,N,M>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+A matrix containing the maximum between the component of each matrix\\ 
+\end{mdframed}
+
+\subsubsection{abs}
+\begin{mdframed}
+Apply absolute value to each component of a matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> abs(Matrix<T,N,M> m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+A matrix with absolute value apply to each component\\ 
+\end{mdframed}
+
+\subsubsection{sign}
+\begin{mdframed}
+Apply sign function to each component of a matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,N,M> sign(Matrix<T,N,M> m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+A matrix with sign function apply to each component\\ 
+\end{mdframed}
+
+\subsubsection{to\_row\_matrix}
+\begin{mdframed}
+Transform a vector to a row matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Matrix<T,1,N> to_row_matrix(const Vector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Size \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The row matrix\\ 
+\end{mdframed}
+
+\subsubsection{to\_column\_matrix}
+\begin{mdframed}
+Transform a vector to a column matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Matrix<T,N,1> to_column_matrix(const Vector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Size \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The column matrix\\ 
+\end{mdframed}
+
+\subsubsection{to\_vector}
+\begin{mdframed}
+Transform a column matrix to a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> to_vector(const Matrix<T,N,1>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Size \\ 
+\textbf{Parameters} \\ 
+\textit{m} The column matrix \\ 
+\textbf{Return} \\ 
+The vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Transform a row matrix to a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> to_vector(const Matrix<T,1,N>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Size \\ 
+\textbf{Parameters} \\ 
+\textit{m} The row matrix \\ 
+\textbf{Return} \\ 
+The vector\\ 
+\end{mdframed}
+
+\subsubsection{dot}
+\begin{mdframed}
+Matrix product
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M, uint32_t P> Matrix<T,N,P> dot(const Matrix<T,N,M>& m1, const Matrix<T,M,P>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row of the first matrix \\ 
+\textit{M} Column of the first matrix and row of the second matrix \\ 
+\textit{P} Column of the second matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+The result matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Matrix - vector product
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> BaseVector<T,N> dot(const Matrix<T,N,M>& m, const BaseVector<T,M>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row of the matrix \\ 
+\textit{M} Column of the matrix and size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The result vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Vector - matrix product
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> BaseVector<T,M> dot(const BaseVector<T,N>& v, const Matrix<T,N,M>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row of the matrix and size of the vector \\ 
+\textit{M} Column of the matrix \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The result vector\\ 
+\end{mdframed}
+
+\subsubsection{identity}
+\begin{mdframed}
+Get the identity matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Matrix<T,N,N> identity() 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row and column of the matrix \\ 
+\textbf{Return} \\ 
+The identity matrix\\ 
+\end{mdframed}
+
+\subsubsection{transpose}
+\begin{mdframed}
+Get the transpose of a matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Matrix<T,M,N> transpose(const Matrix<T,N,M>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row of the matrix \\ 
+\textit{M} Column of the matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The transpose matrix\\ 
+\end{mdframed}
+
+\subsubsection{self\_transpose}
+\begin{mdframed}
+Transpose the matrix itself
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> void self_transpose(Matrix<T,N,N>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row and column of the matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\end{mdframed}
+
+\subsubsection{direct\_sum}
+\begin{mdframed}
+Direct sum of two matrices
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M, uint32_t P, uint32_t Q> Matrix<T,N+P,M+Q> direct_sum(const Matrix<T,N,M>& m1, const Matrix<T,P,Q>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row of the first matrix \\ 
+\textit{M} Column of the first matrix \\ 
+\textit{P} Row of the second matrix \\ 
+\textit{Q} Column of the second matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+The direct sum of the matrices\\ 
+\end{mdframed}
+
+\subsubsection{kronecker\_product}
+\begin{mdframed}
+Kronecker product of two matrices
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M, uint32_t P, uint32_t Q> Matrix<T,N*P,M*Q> kronecker_product(const Matrix<T,N,M>& m1, const Matrix<T,P,Q>& m2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row of the first matrix \\ 
+\textit{M} Column of the first matrix \\ 
+\textit{P} Row of the second matrix \\ 
+\textit{Q} Column of the second matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m1} The first matrix \\ 
+\textit{m2} The second matrix \\ 
+\textbf{Return} \\ 
+The kronecker product of the matrices\\ 
+\end{mdframed}
+
+\subsubsection{determinant}
+\begin{mdframed}
+Compute the determinant of a matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> T determinant(Matrix<T,N,N> m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row and column of the first matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The determinant of the matrix\\ 
+\end{mdframed}
+
+\subsubsection{inverse}
+\begin{mdframed}
+Compute the inverse of a matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Matrix<T,N,N> inverse(Matrix<T,N,N> m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row and column of the first matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The inverse of the matrix\\ 
+\textbf{Warning} \\ 
+Does not check if the determinant is non null\\ 
+\end{mdframed}
+
+\subsubsection{expand}
+\begin{mdframed}
+Expand a matrix (from [N x N] to [N+1 x N+1])
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Matrix<T,N+1,N+1> expand(const Matrix<T,N,N>& m) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type \\ 
+\textit{N} Row and column of the first matrix \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textbf{Return} \\ 
+The expand matrix\\ 
+\end{mdframed}
+
+\subsubsection{exp}
+\begin{mdframed}
+Compute the exponential of a matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Matrix<T,N,N> exp(const Matrix<T,N,N>& m, T tolerence = 1e-3, uint32_t max_iteration = 30) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of matrix \\ 
+\textit{N} Row and column \\ 
+\textbf{Parameters} \\ 
+\textit{m} The matrix \\ 
+\textit{tolerence} Tolerence of the computation \\ 
+\textit{max\_iteration} Maximum number of iterations \\ 
+\textbf{Return} \\ 
+The exponential of a matrix\\ 
+\textbf{Warning} \\ 
+Tolerence must be smaller than 1, max\_iteration must be smaller than 33\\ 
+\end{mdframed}
+

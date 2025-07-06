@@ -1,0 +1,184 @@
+\subsection{Vector  class}
+Mathematical vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> class Vector 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the vector \\ 
+
+\subsubsection{Vector}
+\begin{mdframed}
+Default constructor, fill the vector with value 0
+\begin{lstlisting}[language=C++]
+Vector()
+\end{lstlisting}
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, fill the vector with a value
+\begin{lstlisting}[language=C++]
+Vector(T fill_val)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{fill\_val} Value that fill the vector \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy an array
+\begin{lstlisting}[language=C++]
+Vector(const std::array<T,N>& init_array)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_array} Initial array \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy an initializer list
+\begin{lstlisting}[language=C++]
+Vector(const std::initializer_list<T>& init_list)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{init\_list} Initializer list \\ 
+\end{mdframed}
+
+\subsubsection{get\_type\_object}
+\begin{mdframed}
+Get the type of the object
+\begin{lstlisting}[language=C++]
+virtual type_mat get_type_object() const override 
+\end{lstlisting}
+\textbf{Return} \\ 
+The type of the object\\ 
+\end{mdframed}
+
+\subsubsection{norm2}
+\begin{mdframed}
+Compute the square of the norm
+\begin{lstlisting}[language=C++]
+T norm2() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The square of the norm\\ 
+\end{mdframed}
+
+\subsubsection{norm}
+\begin{mdframed}
+Compute the the norm
+\begin{lstlisting}[language=C++]
+T norm() const
+\end{lstlisting}
+\textbf{Return} \\ 
+The norm\\ 
+\end{mdframed}
+
+\subsubsection{normalize}
+\begin{mdframed}
+Normalize the vector
+\begin{lstlisting}[language=C++]
+void normalize()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{operator BaseVector<T,N>\&}
+\begin{mdframed}
+Cast to a base vector
+\begin{lstlisting}[language=C++]
+operator BaseVector<T,N>&()
+\end{lstlisting}
+\end{mdframed}
+
+\subsubsection{operator+=}
+\begin{mdframed}
+Sum each vector element with a scalar
+\begin{lstlisting}[language=C++]
+Vector& operator+=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add two vectors
+\begin{lstlisting}[language=C++]
+Vector& operator+=(const Vector<T,N>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Vector \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\end{mdframed}
+
+\subsubsection{operator-=}
+\begin{mdframed}
+Subtract each vector element with a scalar
+\begin{lstlisting}[language=C++]
+Vector& operator-=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract two vectors
+\begin{lstlisting}[language=C++]
+Vector& operator-=(const Vector<T,N>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Vector \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\end{mdframed}
+
+\subsubsection{operator*=}
+\begin{mdframed}
+Multiply each vector element with a scalar
+\begin{lstlisting}[language=C++]
+Vector& operator*=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply each element of the two vectors
+\begin{lstlisting}[language=C++]
+Vector& operator*=(const Vector<T,N>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Vector \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\textbf{Warning} \\ 
+It is not a dot product, use the function dot\\ 
+\end{mdframed}
+
+\subsubsection{operator/=}
+\begin{mdframed}
+Divide each vector element with a scalar
+\begin{lstlisting}[language=C++]
+Vector& operator/=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Divide each element of the two vectors
+\begin{lstlisting}[language=C++]
+Vector& operator/=(const Vector<T,N>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Vector \\ 
+\textbf{Return} \\ 
+Reference to the vector\\ 
+\end{mdframed}
+

@@ -1,0 +1,303 @@
+\subsection{Matrix  class}
+Mathematical matrix
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> class Matrix 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of matrix \\ 
+\textit{N} Row \\ 
+\textit{M} Column \\ 
+
+\subsubsection{Matrix}
+\begin{mdframed}
+Default constructor, fill the matri with value 0
+\begin{lstlisting}[language=C++]
+Matrix()
+\end{lstlisting}
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, fill the matrix with a value
+\begin{lstlisting}[language=C++]
+Matrix(T fill_val)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{fill\_val} Value that fill the matrix \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy the data
+\begin{lstlisting}[language=C++]
+Matrix(T* start)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{start} First element to copy \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy an initializer list of vector
+\begin{lstlisting}[language=C++]
+Matrix(const std::initializer_list<Vector<T,N>>& init_list)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{l} Initializer list of vector \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy a initializer list
+\begin{lstlisting}[language=C++]
+Matrix(const std::initializer_list<T>& init_list)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{l} Initializer list \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy an array
+\begin{lstlisting}[language=C++]
+Matrix(const std::array<T, N*M>& init_array)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{l} Initial array \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Constructor, copy an array of vectors
+\begin{lstlisting}[language=C++]
+Matrix(const std::array<Vector<T, N>, M>& init_array)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{l} Array of vectors \\ 
+\end{mdframed}
+
+\subsubsection{get\_type\_object}
+\begin{mdframed}
+Get the type of the object
+\begin{lstlisting}[language=C++]
+virtual type_mat get_type_object() const override 
+\end{lstlisting}
+\textbf{Return} \\ 
+The type of the object\\ 
+\end{mdframed}
+
+\subsubsection{size}
+\begin{mdframed}
+Get the size of the matrix
+\begin{lstlisting}[language=C++]
+void size(uint32_t& n, uint32_t& m) const 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{n} Reference to the number of row \\ 
+\textit{m} Reference to the number of column \\ 
+\end{mdframed}
+
+\subsubsection{copy}
+\begin{mdframed}
+Copy data into the matrix
+\begin{lstlisting}[language=C++]
+void copy(T* start)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{start} A pointer to the first element that will be copy \\ 
+\end{mdframed}
+
+\subsubsection{row}
+\begin{mdframed}
+Get the number of row
+\begin{lstlisting}[language=C++]
+uint32_t row() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+The number of row\\ 
+\end{mdframed}
+
+\subsubsection{column}
+\begin{mdframed}
+Get the number of column
+\begin{lstlisting}[language=C++]
+uint32_t column() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+The number of column\\ 
+\end{mdframed}
+
+\subsubsection{begin}
+\begin{mdframed}
+Get the begin iterator
+\begin{lstlisting}[language=C++]
+iterator begin() 
+\end{lstlisting}
+\textbf{Return} \\ 
+The begin iterator\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the constant begin iterator
+\begin{lstlisting}[language=C++]
+const_iterator begin() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+The constant begin iterator\\ 
+\end{mdframed}
+
+\subsubsection{end}
+\begin{mdframed}
+Get the end iterator
+\begin{lstlisting}[language=C++]
+iterator end() 
+\end{lstlisting}
+\textbf{Return} \\ 
+The end iterator\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Get the constant end iterator
+\begin{lstlisting}[language=C++]
+const_iterator end() const 
+\end{lstlisting}
+\textbf{Return} \\ 
+The constant end iterator\\ 
+\end{mdframed}
+
+\subsubsection{operator()}
+\begin{mdframed}
+Accessor to the element (i,j)
+\begin{lstlisting}[language=C++]
+const T& operator()(uint32_t i, uint32_t j) const 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{i} Row \\ 
+\textit{j} Column \\ 
+\textbf{Return} \\ 
+A constant reference to the element (i,j) \\ 
+\end{mdframed}
+
+\begin{mdframed}
+Accessor to the element (i,j)
+\begin{lstlisting}[language=C++]
+T& operator()(uint32_t i, uint32_t j) 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{i} Row \\ 
+\textit{j} Column \\ 
+\textbf{Return} \\ 
+A reference to the element (i,j) \\ 
+\end{mdframed}
+
+\subsubsection{operator[]}
+\begin{mdframed}
+Accessor to the i th column vector
+\begin{lstlisting}[language=C++]
+const Vector<T,N>& operator[](uint32_t i) const 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{i} Column \\ 
+\textbf{Return} \\ 
+A constant reference to the column vector i\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Accessor to the i th column vector
+\begin{lstlisting}[language=C++]
+Vector<T,N>& operator[](uint32_t i) 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{i} Column \\ 
+\textbf{Return} \\ 
+A reference to the column vector i\\ 
+\end{mdframed}
+
+\subsubsection{operator+=}
+\begin{mdframed}
+Sum each component with a scalar
+\begin{lstlisting}[language=C++]
+Matrix& operator+=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add two matrices
+\begin{lstlisting}[language=C++]
+Matrix& operator+=(const Matrix<T,N,M>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Matrix \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\end{mdframed}
+
+\subsubsection{operator-=}
+\begin{mdframed}
+Substract each component with a scalar
+\begin{lstlisting}[language=C++]
+Matrix& operator-=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract two matrices
+\begin{lstlisting}[language=C++]
+Matrix& operator-=(const Matrix<T,N,M>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Matrix \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\end{mdframed}
+
+\subsubsection{operator*=}
+\begin{mdframed}
+Multiply each component with a scalar
+\begin{lstlisting}[language=C++]
+Matrix& operator*=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply each element of the two matrices
+\begin{lstlisting}[language=C++]
+Matrix& operator*=(const Matrix<T,N,M>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Matrix \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\textbf{Warning} \\ 
+It is not a matrix product, use the function dot\\ 
+\end{mdframed}
+
+\subsubsection{operator/=}
+\begin{mdframed}
+Divide each component with a scalar
+\begin{lstlisting}[language=C++]
+Matrix& operator/=(T a)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{a} Scalar \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Divide each element of the two matrices
+\begin{lstlisting}[language=C++]
+Matrix& operator/=(const Matrix<T,N,M>& v)
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{v} Matrix \\ 
+\textbf{Return} \\ 
+Reference to the matrix\\ 
+\end{mdframed}
+

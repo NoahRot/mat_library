@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -20,9 +21,10 @@ namespace mat {
 /// @param obj The MatObject
 /// @param file_path The path to the file to store the data
 /// @param separator What separate the components
+/// @param precision The precision for the written value (number of written digit)
 /// @return True if the process succeeded, false otherwise
 template<typename T, uint32_t SIZE>
-bool save_txt(const MatObject<T,SIZE>& obj, std::string file_path, char separator = ' ') {
+bool save_txt(const MatObject<T,SIZE>& obj, std::string file_path, char separator = ' ', uint32_t precision = 6) {
     // Open file
     std::ofstream stream(file_path);
 
@@ -32,11 +34,14 @@ bool save_txt(const MatObject<T,SIZE>& obj, std::string file_path, char separato
         return false;
     }
 
+    // Set precision
+    stream << std::setprecision(precision);
+
     // Write metadata
     type_mat t_mat = obj.get_type_object();
     type_content t_con = obj.get_type_content();
 
-    stream << to_str(t_mat) << " " << SIZE << " " << to_str(t_con) << " ";
+    stream << to_str(t_mat) << separator << SIZE << separator << to_str(t_con) << separator;
 
     // Write content
     const std::array<T,SIZE>& data = obj.data();

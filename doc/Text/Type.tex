@@ -1,0 +1,79 @@
+\subsection{type\_mat  class}
+Type of MatObject that exist
+\begin{lstlisting}[language=C++]
+enum class type_mat 
+\end{lstlisting}
+
+\subsection{type\_content  class}
+Type of content in the MatObject that are allowed
+\begin{lstlisting}[language=C++]
+enum class type_content 
+\end{lstlisting}
+
+\subsection{type\_traits  structure}
+Function to get the type of content (see specialisation below)
+\begin{lstlisting}[language=C++]
+template<typename T> struct type_traits 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of content \\ 
+
+\subsubsection{get\_type}
+\begin{mdframed}
+Get the type enum value
+\begin{lstlisting}[language=C++]
+template<typename T> type_content get_type() 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type \\ 
+\textbf{Return} \\ 
+The enum value, or unvalid value if not supported type\\ 
+\end{mdframed}
+
+\subsubsection{to\_str}
+\begin{mdframed}
+Transform a type of MatObject in a string
+\begin{lstlisting}[language=C++]
+inline std::string to_str(type_mat t) 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{t} Type of MatObject \\ 
+\textbf{Return} \\ 
+A string refering to the type of the MatObject\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Transform a type of content in a string
+\begin{lstlisting}[language=C++]
+inline std::string to_str(type_content t) 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{t} Type of content \\ 
+\textbf{Return} \\ 
+A string refering to the type of the content\\ 
+\end{mdframed}
+
+\subsubsection{to\_type\_mat}
+\begin{mdframed}
+Transform a string to the type of MatObject
+\begin{lstlisting}[language=C++]
+inline type_mat to_type_mat(std::string t) 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{t} The string \\ 
+\textbf{Return} \\ 
+The type of MatObject\\ 
+\end{mdframed}
+
+\subsubsection{to\_type\_content}
+\begin{mdframed}
+Transform a string to the type of content
+\begin{lstlisting}[language=C++]
+inline type_content to_type_content(std::string t) 
+\end{lstlisting}
+\textbf{Parameters} \\ 
+\textit{t} The string \\ 
+\textbf{Return} \\ 
+The type of content\\ 
+\end{mdframed}
+

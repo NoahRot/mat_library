@@ -1,0 +1,483 @@
+\subsubsection{operator<<}
+\begin{mdframed}
+Stream operator, write the vector into a stream
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> std::ostream& operator<<(std::ostream& stream, const Vector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{stream} The stream \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The stream with the modifications\\ 
+\end{mdframed}
+
+\subsubsection{operator+}
+\begin{mdframed}
+Add a scalar to each element of the vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator+(Vector<T,N> v1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} The vector \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Add a scalar to each element of the vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator+(T a, Vector<T,N> v1) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{a} The scalar \\ 
+\textit{v1} The vector \\ 
+\textbf{Return} \\ 
+The new vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Addition of two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator+(Vector<T,N> v1, const Vector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+The addition of the two vectors\\ 
+\end{mdframed}
+
+\subsubsection{operator-}
+\begin{mdframed}
+Substract a scalar to each element of the vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator-(Vector<T,N> v1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} The vector \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substract element of the vector by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator-(T a, Vector<T,N> v1) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{a} The scalar \\ 
+\textit{v1} The vector \\ 
+\textbf{Return} \\ 
+The new vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Substraction of two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator-(Vector<T,N> v1, const Vector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+The substraction of the two vectors\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Each element is multiply by -1
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator-(Vector<T,N> v1) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} The vector \\ 
+\textbf{Return} \\ 
+Minus the vector (-v)\\ 
+\end{mdframed}
+
+\subsubsection{operator*}
+\begin{mdframed}
+Multiply each component of a vector by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator*(Vector<T,N> v1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} The vector \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply each component of a vector by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator*(T a, Vector<T,N> v1) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{a} The scalar \\ 
+\textit{v1} The vector \\ 
+\textbf{Return} \\ 
+The new vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Multiply each element of two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator*(Vector<T,N> v1, const Vector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+The multiplication result\\ 
+\textbf{Warning} \\ 
+It is not a dot product, use the function dot\\ 
+\end{mdframed}
+
+\subsubsection{operator/}
+\begin{mdframed}
+Divide each component of a vector by a scalar
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator/(Vector<T,N> v1, T a) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} The vector \\ 
+\textit{a} The scalar \\ 
+\textbf{Return} \\ 
+The new vector\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Divide each element of two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> operator/(Vector<T,N> v1, const Vector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} The type of vector \\ 
+\textit{N} The size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+The division result\\ 
+\end{mdframed}
+
+\subsubsection{sum}
+\begin{mdframed}
+Sum all the component of a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> T sum(const Vector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The sum of the component of the vector\\ 
+\end{mdframed}
+
+\subsubsection{merge}
+\begin{mdframed}
+Merge two vectors into one vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t M> Vector<T, N+M> merge(const Vector<T,N>& v1, const Vector<T,M>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the first vector \\ 
+\textit{M} Size of the second vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+Merged vector\\ 
+\end{mdframed}
+
+\subsubsection{append}
+\begin{mdframed}
+Append a component at the back of a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N+1> append(const Vector<T,N>& v, T value) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{value} The new component \\ 
+\textbf{Return} \\ 
+Vector with the new element\\ 
+\end{mdframed}
+
+\subsubsection{insert}
+\begin{mdframed}
+Insert a component in a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N+1> insert(const Vector<T,N>& v, T value, uint32_t index) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{value} The new component \\ 
+\textit{index} The index where the component will be inserted \\ 
+\textbf{Return} \\ 
+Vector with the new element\\ 
+\end{mdframed}
+
+\subsubsection{remove}
+\begin{mdframed}
+Remove a component from a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N-1> remove(const Vector<T,N>&v, uint32_t index) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{index} The index of the component that will be removed \\ 
+\textbf{Return} \\ 
+Vector without the component\\ 
+\end{mdframed}
+
+\subsubsection{sub\_vector}
+\begin{mdframed}
+Create a sub vector from a vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N, uint32_t I1, uint32_t I2> Vector<T,I2-I1+1> sub_vector(const Vector<T,N>& v) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the vector \\ 
+\textit{I1} First element of the sub vector \\ 
+\textit{I2} Last element of the sub vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textbf{Return} \\ 
+The sub vector\\ 
+\end{mdframed}
+
+\subsubsection{dot}
+\begin{mdframed}
+Compute the dot product between two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> T dot(Vector<T,N> v1, const Vector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textit{N} Size of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+Result of the dot product\\ 
+\end{mdframed}
+
+\subsubsection{cross}
+\begin{mdframed}
+Compute the cross product between two vectors of dimension 2
+\begin{lstlisting}[language=C++]
+template<typename T> T cross(const Vector<T,2>& v1, const Vector<T,2>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+Result of the cross product (a scalar)\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Compute the cross product between two vectors of dimension 3
+\begin{lstlisting}[language=C++]
+template<typename T> Vector<T,3> cross(const Vector<T,3>& v1, const Vector<T,3>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+Result of the cross product (a vector 3)\\ 
+\end{mdframed}
+
+\subsubsection{angle}
+\begin{mdframed}
+Compute the angle between two vectors of dimension 2
+\begin{lstlisting}[language=C++]
+template<typename T> T angle(const Vector<T,2>& v1, const Vector<T,2>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+Angle between the vectors\\ 
+\end{mdframed}
+
+\begin{mdframed}
+Compute the angle between two vectors of dimension 3
+\begin{lstlisting}[language=C++]
+template<typename T> T angle(const Vector<T,3>& v1, const Vector<T,3>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+Angle between the vectors\\ 
+\end{mdframed}
+
+\subsubsection{polar}
+\begin{mdframed}
+Compute the polar representation of a vector 2
+\begin{lstlisting}[language=C++]
+template<typename T> void polar(const Vector<T,2>& v, T& radius, T& theta) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{radius} A reference to the magnitude \\ 
+\textit{theta} A reference to the argument (angle) of the vector \\ 
+\end{mdframed}
+
+\subsubsection{cylindrical}
+\begin{mdframed}
+Compute the cylindrical representation of a vector 3
+\begin{lstlisting}[language=C++]
+template<typename T> void cylindrical(const Vector<T,3>& v, T& radius, T& theta, T& z) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{radius} A reference to the radius of the cylinder \\ 
+\textit{theta} A reference to the angle \\ 
+\textit{z} A reference to the z coordinate \\ 
+\end{mdframed}
+
+\subsubsection{spherical}
+\begin{mdframed}
+Compute the spherical representation of a vector 3
+\begin{lstlisting}[language=C++]
+template<typename T> void spherical(const Vector<T,3>& v, T& radius, T& theta, T& phi) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of the vector \\ 
+\textbf{Parameters} \\ 
+\textit{v} The vector \\ 
+\textit{radius} A reference to the radius of the sphere \\ 
+\textit{theta} A reference to the theta angle \\ 
+\textit{phi} A reference to the phi angle \\ 
+\end{mdframed}
+
+\subsubsection{distance}
+\begin{mdframed}
+Compute the distance between two vectors
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> T distance(const Vector<T,N>& v1, const Vector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vectors \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+The distance between the vectors\\ 
+\end{mdframed}
+
+\subsubsection{reflect}
+\begin{mdframed}
+Compute the reflected vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> reflect(const Vector<T,N>& incident, Vector<T,N> surface_normal) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Site of vector \\ 
+\textbf{Parameters} \\ 
+\textit{incident} The incident ray \\ 
+\textit{surface\_normal} The surface normal \\ 
+\textbf{Return} \\ 
+The refleted vector\\ 
+\end{mdframed}
+
+\subsubsection{refract}
+\begin{mdframed}
+Compute the refracted vector
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> Vector<T,N> refract(const Vector<T,N>& incident, Vector<T,N> surface_normal, T n1, T n2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{incident} The incident ray \\ 
+\textit{surface\_normal} The surface normal \\ 
+\textit{n1} The refraction index of the medium of the incident ray \\ 
+\textit{n2} The refraction index of the medium of the surface \\ 
+\textbf{Return} \\ 
+The refracted vector\\ 
+\end{mdframed}
+
+\subsubsection{face\_same\_direction}
+\begin{mdframed}
+Get if both vector are facing in the same direction (dot(v1, v2) >? 0)
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t N> bool face_same_direction(const Vector<T,N>& v1, const Vector<T,N>& v2) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of vector \\ 
+\textit{N} Size of vector \\ 
+\textbf{Parameters} \\ 
+\textit{v1} First vector \\ 
+\textit{v2} Second vector \\ 
+\textbf{Return} \\ 
+True if dot(v1, v2) > 0, false otherwise\\ 
+\end{mdframed}
+

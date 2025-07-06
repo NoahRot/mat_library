@@ -1,0 +1,67 @@
+\subsubsection{save\_txt}
+\begin{mdframed}
+Serialization of a MatObject in a text format 
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t SIZE> bool save_txt(const MatObject<T,SIZE>& obj, std::string file_path, char separator = ' ', uint32_t precision = 6) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of content \\ 
+\textit{SIZE} Size of the MatObject \\ 
+\textbf{Parameters} \\ 
+\textit{obj} The MatObject \\ 
+\textit{file\_path} The path to the file to store the data \\ 
+\textit{separator} What separate the components \\ 
+\textit{precision} The precision for the written value (number of written digit) \\ 
+\textbf{Return} \\ 
+True if the process succeeded, false otherwise\\ 
+\end{mdframed}
+
+\subsubsection{load\_txt}
+\begin{mdframed}
+Deserialization of a MatObject from a text file
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t SIZE> bool load_txt(MatObject<T,SIZE>& obj, std::string file_path, char separator = ' ') 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of content \\ 
+\textit{SIZE} Size of the MatObject \\ 
+\textbf{Parameters} \\ 
+\textit{obj} The MatObject that will be filled with data \\ 
+\textit{file\_path} The path to the file where the data are stored \\ 
+\textit{separator} What separate the components \\ 
+\textbf{Return} \\ 
+True if the process succeeded, false otherwise\\ 
+\end{mdframed}
+
+\subsubsection{save\_bin}
+\begin{mdframed}
+Serialization of a MatObject in a binary format
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t SIZE> bool save_bin(const MatObject<T,SIZE>& obj, std::string file_path) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of content \\ 
+\textit{SIZE} Size of the MatObject \\ 
+\textbf{Parameters} \\ 
+\textit{obj} The MatObject \\ 
+\textit{file\_path} The path to the file to store the data \\ 
+\textbf{Return} \\ 
+True if the process succeeded, false otherwise \\ 
+\end{mdframed}
+
+\subsubsection{load\_bin}
+\begin{mdframed}
+Deserialization of a MatObject from a binary file
+\begin{lstlisting}[language=C++]
+template<typename T, uint32_t SIZE> bool load_bin(MatObject<T,SIZE>& obj, std::string file_path) 
+\end{lstlisting}
+\textbf{Template Parameters} \\ 
+\textit{T} Type of content \\ 
+\textit{SIZE} Size of the MatObject \\ 
+\textbf{Parameters} \\ 
+\textit{obj} The MatObject that will be filled with data \\ 
+\textit{file\_path} The path to the file where the data are stored \\ 
+\textbf{Return} \\ 
+True if the process succeeded, false otherwise \\ 
+\end{mdframed}
+
